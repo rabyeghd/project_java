@@ -1,3 +1,4 @@
+// Classe Salle : Gère les données du système
 package models;
 
 public class Salle {
@@ -22,7 +23,6 @@ public class Salle {
         this.disponible = disponible;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -86,3 +86,5 @@ public class Salle {
                 + disponible + "}";
     }
 }
+// Fin de la classe Salle
+

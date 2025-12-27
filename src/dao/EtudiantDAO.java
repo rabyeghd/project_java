@@ -1,3 +1,4 @@
+// Classe EtudiantDAO : Gère les données du système
 package dao;
 
 import models.Etudiant;
@@ -25,7 +26,7 @@ public class EtudiantDAO {
                     if (generatedKeys.next()) {
                         etudiant.setId(generatedKeys.getInt(1));
                         System.out.println(
-                                "✓ Etudiant created successfully: " + etudiant.getPrenom() + " " + etudiant.getNom());
+                                "✓ Etudiant créé avec succès: " + etudiant.getPrenom() + " " + etudiant.getNom());
                     }
                 }
                 return true;
@@ -61,7 +62,7 @@ public class EtudiantDAO {
             while (rs.next()) {
                 list.add(mapResultSetToEtudiant(rs));
             }
-            System.out.println("✓ Found " + list.size() + " etudiant(s)");
+            System.out.println("✓ Trouvé " + list.size() + " etudiant(s)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,7 +83,7 @@ public class EtudiantDAO {
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
                 System.out
-                        .println("✓ Etudiant updated successfully: " + etudiant.getPrenom() + " " + etudiant.getNom());
+                        .println("✓ Etudiant mis à jour avec succès: " + etudiant.getPrenom() + " " + etudiant.getNom());
                 return true;
             }
         } catch (SQLException e) {
@@ -98,7 +99,7 @@ public class EtudiantDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Etudiant deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Etudiant supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -136,3 +137,5 @@ public class EtudiantDAO {
         return e;
     }
 }
+// Fin de la classe EtudiantDAO
+

@@ -1,3 +1,4 @@
+// Classe TrainingCenterProject : Gère les données du système
 package app;
 
 import java.sql.*;
@@ -81,3 +82,5 @@ public class TrainingCenterProject {
         dao.delete(s.getId());
     }
 }
+// Fin de la classe TrainingCenterProject
+

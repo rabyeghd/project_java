@@ -1,3 +1,4 @@
+// Classe SalleDAO : Gère les données du système
 package dao;
 
 import models.Salle;
@@ -24,7 +25,7 @@ public class SalleDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         salle.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Salle created successfully: " + salle.getNom());
+                        System.out.println("✓ Salle créé avec succès: " + salle.getNom());
                     }
                 }
                 return true;
@@ -60,7 +61,7 @@ public class SalleDAO {
             while (rs.next()) {
                 list.add(mapResultSetToSalle(rs));
             }
-            System.out.println("✓ Found " + list.size() + " salle(s)");
+            System.out.println("✓ Trouvé " + list.size() + " salle(s)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -80,7 +81,7 @@ public class SalleDAO {
             pstmt.setInt(7, salle.getId());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Salle updated successfully: " + salle.getNom());
+                System.out.println("✓ Salle mis à jour avec succès: " + salle.getNom());
                 return true;
             }
         } catch (SQLException e) {
@@ -96,7 +97,7 @@ public class SalleDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Salle deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Salle supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -134,3 +135,5 @@ public class SalleDAO {
         return s;
     }
 }
+// Fin de la classe SalleDAO
+

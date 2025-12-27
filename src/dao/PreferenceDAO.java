@@ -1,3 +1,4 @@
+// Classe PreferenceDAO : Gère les données du système
 package dao;
 
 import models.Preference;
@@ -23,7 +24,7 @@ public class PreferenceDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         pref.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Preference created successfully: " + pref.getTypePreference());
+                        System.out.println("✓ Preference créé avec succès: " + pref.getTypePreference());
                     }
                 }
                 return true;
@@ -77,7 +78,7 @@ public class PreferenceDAO {
             pstmt.setInt(4, pref.getId());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Preference updated successfully: " + pref.getTypePreference());
+                System.out.println("✓ Preference mis à jour avec succès: " + pref.getTypePreference());
                 return true;
             }
         } catch (SQLException e) {
@@ -93,7 +94,7 @@ public class PreferenceDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Preference deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Preference supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -113,3 +114,5 @@ public class PreferenceDAO {
         return p;
     }
 }
+// Fin de la classe PreferenceDAO
+

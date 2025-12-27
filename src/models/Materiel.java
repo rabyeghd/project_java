@@ -1,3 +1,4 @@
+// Classe Materiel : Gère les données du système
 package models;
 
 public class Materiel {
@@ -22,7 +23,6 @@ public class Materiel {
         this.description = description;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -86,3 +86,5 @@ public class Materiel {
                 + description + "'}";
     }
 }
+// Fin de la classe Materiel
+

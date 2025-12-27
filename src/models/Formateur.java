@@ -1,3 +1,4 @@
+// Classe Formateur : Gère les données du système
 package models;
 
 public class Formateur {
@@ -22,7 +23,6 @@ public class Formateur {
         this.anneesExperience = anneesExperience;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -85,3 +85,5 @@ public class Formateur {
                 + telephone + "', specialite='" + specialite + "', anneesExperience=" + anneesExperience + "}";
     }
 }
+// Fin de la classe Formateur
+

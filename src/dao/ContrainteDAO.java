@@ -1,3 +1,4 @@
+// Classe ContrainteDAO : Gère les données du système
 package dao;
 
 import models.Contrainte;
@@ -24,7 +25,7 @@ public class ContrainteDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         contrainte.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Contrainte created successfully: " + contrainte.getType());
+                        System.out.println("✓ Contrainte créé avec succès: " + contrainte.getType());
                     }
                 }
                 return true;
@@ -57,7 +58,7 @@ public class ContrainteDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Contrainte deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Contrainte supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -78,3 +79,5 @@ public class ContrainteDAO {
         return c;
     }
 }
+// Fin de la classe ContrainteDAO
+

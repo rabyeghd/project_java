@@ -1,3 +1,4 @@
+// Classe Etudiant : Gère les données du système
 package models;
 
 import java.sql.Date;
@@ -23,7 +24,6 @@ public class Etudiant {
         this.dateInscription = dateInscription;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -86,3 +86,5 @@ public class Etudiant {
                 + telephone + "', niveau='" + niveau + "', dateInscription=" + dateInscription + "}";
     }
 }
+// Fin de la classe Etudiant
+

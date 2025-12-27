@@ -1,3 +1,4 @@
+// Classe Preference : Gère les données du système
 package models;
 
 public class Preference {
@@ -19,7 +20,6 @@ public class Preference {
         this.priorite = priorite;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -74,3 +74,5 @@ public class Preference {
                 + typePreference + "', valeur='" + valeur + "', priorite=" + priorite + "}";
     }
 }
+// Fin de la classe Preference
+

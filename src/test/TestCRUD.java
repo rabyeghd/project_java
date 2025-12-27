@@ -1,3 +1,4 @@
+// Classe TestCRUD : Gère les données du système
 package test;
 import  dao.*;
 import models.*;
@@ -8,10 +9,6 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 
-/**
- * 
- * Test class to verify CRUD operations for all DAOs
- */
 public class TestCRUD {
 
     public static void main(String[] args) {
@@ -19,22 +16,16 @@ public class TestCRUD {
         System.out.println("Training Center Management System - CRUD Test");
         System.out.println("========================================\n");
 
-        // Test database connection
         testDatabaseConnection();
 
-        // Test Formateur CRUD
         testFormateurCRUD();
 
-        // Test Etudiant CRUD
         testEtudiantCRUD();
 
-        // Test Salle CRUD
         testSalleCRUD();
 
-        // Test Materiel CRUD
         testMaterielCRUD();
 
-        // Test Session CRUD
         testSessionCRUD();
 
         System.out.println("\n========================================");
@@ -56,36 +47,30 @@ public class TestCRUD {
         System.out.println("\n--- Testing Formateur CRUD Operations ---");
         FormateurDAO formateurDAO = new FormateurDAO();
 
-        // CREATE
         System.out.println("\n1. CREATE Test:");
         Formateur newFormateur = new Formateur(
                 "Dupont", "Jean", "jean.dupont@test.fr",
                 "+33 6 11 22 33 44", "Intelligence Artificielle", 5);
         formateurDAO.create(newFormateur);
 
-        // READ
         System.out.println("\n2. READ Test:");
-        Formateur found = formateurDAO.findById(newFormateur.getId());
-        if (found != null) {
-            System.out.println("✓ Found: " + found);
+        Formateur Trouvé = formateurDAO.findById(newFormateur.getId());
+        if (Trouvé != null) {
+            System.out.println("✓ Trouvé: " + Trouvé);
         }
 
-        // UPDATE
         System.out.println("\n3. UPDATE Test:");
-        found.setAnneesExperience(10);
-        found.setSpecialite("IA & Machine Learning");
-        formateurDAO.update(found);
+        Trouvé.setAnneesExperience(10);
+        Trouvé.setSpecialite("IA & Machine Learning");
+        formateurDAO.update(Trouvé);
 
-        // READ ALL
         System.out.println("\n4. READ ALL Test:");
         formateurDAO.findAll();
 
-        // SEARCH BY SPECIALITE
         System.out.println("\n5. SEARCH BY SPECIALITE Test:");
         var formateursBySpec = formateurDAO.findBySpecialite("Web");
-        System.out.println("✓ Found " + formateursBySpec.size() + " formateur(s) with 'Web' specialite");
+        System.out.println("✓ Trouvé " + formateursBySpec.size() + " formateur(s) with 'Web' specialite");
 
-        // DELETE
         System.out.println("\n6. DELETE Test:");
         formateurDAO.delete(newFormateur.getId());
     }
@@ -94,35 +79,29 @@ public class TestCRUD {
         System.out.println("\n--- Testing Etudiant CRUD Operations ---");
         EtudiantDAO etudiantDAO = new EtudiantDAO();
 
-        // CREATE
         System.out.println("\n1. CREATE Test:");
         Etudiant newEtudiant = new Etudiant(
                 "Rousseau", "Claire", "claire.rousseau@test.fr",
                 "+33 6 99 88 77 66", "Débutant", Date.valueOf("2024-03-01"));
         etudiantDAO.create(newEtudiant);
 
-        // READ
         System.out.println("\n2. READ Test:");
-        Etudiant found = etudiantDAO.findById(newEtudiant.getId());
-        if (found != null) {
-            System.out.println("✓ Found: " + found);
+        Etudiant Trouvé = etudiantDAO.findById(newEtudiant.getId());
+        if (Trouvé != null) {
+            System.out.println("✓ Trouvé: " + Trouvé);
         }
 
-        // UPDATE
         System.out.println("\n3. UPDATE Test:");
-        found.setNiveau("Intermédiaire");
-        etudiantDAO.update(found);
+        Trouvé.setNiveau("Intermédiaire");
+        etudiantDAO.update(Trouvé);
 
-        // READ ALL
         System.out.println("\n4. READ ALL Test:");
         etudiantDAO.findAll();
 
-        // SEARCH BY NIVEAU
         System.out.println("\n5. SEARCH BY NIVEAU Test:");
         var etudiantsByNiveau = etudiantDAO.findByNiveau("Débutant");
-        System.out.println("✓ Found " + etudiantsByNiveau.size() + " etudiant(s) with 'Débutant' niveau");
+        System.out.println("✓ Trouvé " + etudiantsByNiveau.size() + " etudiant(s) with 'Débutant' niveau");
 
-        // DELETE
         System.out.println("\n6. DELETE Test:");
         etudiantDAO.delete(newEtudiant.getId());
     }
@@ -131,7 +110,6 @@ public class TestCRUD {
         System.out.println("\n--- Testing Salle CRUD Operations ---");
         SalleDAO salleDAO = new SalleDAO();
 
-        // CREATE
         System.out.println("\n1. CREATE Test:");
         Salle newSalle = new Salle(
                 "Salle C301", 25, "Conférence",
@@ -139,29 +117,24 @@ public class TestCRUD {
                 "Bâtiment C - 3ème étage", true);
         salleDAO.create(newSalle);
 
-        // READ
         System.out.println("\n2. READ Test:");
-        Salle found = salleDAO.findById(newSalle.getId());
-        if (found != null) {
-            System.out.println("✓ Found: " + found);
+        Salle Trouvé = salleDAO.findById(newSalle.getId());
+        if (Trouvé != null) {
+            System.out.println("✓ Trouvé: " + Trouvé);
         }
 
-        // UPDATE
         System.out.println("\n3. UPDATE Test:");
-        found.setCapacite(30);
-        found.setDisponible(false);
-        salleDAO.update(found);
+        Trouvé.setCapacite(30);
+        Trouvé.setDisponible(false);
+        salleDAO.update(Trouvé);
 
-        // READ ALL
         System.out.println("\n4. READ ALL Test:");
         salleDAO.findAll();
 
-        // SEARCH BY TYPE
         System.out.println("\n5. SEARCH BY TYPE Test:");
         var sallesByType = salleDAO.findByType("Informatique");
-        System.out.println("✓ Found " + sallesByType.size() + " salle(s) of type 'Informatique'");
+        System.out.println("✓ Trouvé " + sallesByType.size() + " salle(s) of type 'Informatique'");
 
-        // DELETE
         System.out.println("\n6. DELETE Test:");
         salleDAO.delete(newSalle.getId());
     }
@@ -170,36 +143,30 @@ public class TestCRUD {
         System.out.println("\n--- Testing Materiel CRUD Operations ---");
         MaterielDAO materielDAO = new MaterielDAO();
 
-        // CREATE
         System.out.println("\n1. CREATE Test:");
         Materiel newMateriel = new Materiel(
                 "Tablette Samsung", "Informatique",
                 20, 25, "Bon", "Tablette Samsung Galaxy Tab pour formations mobiles");
         materielDAO.create(newMateriel);
 
-        // READ
         System.out.println("\n2. READ Test:");
-        Materiel found = materielDAO.findById(newMateriel.getId());
-        if (found != null) {
-            System.out.println("✓ Found: " + found);
+        Materiel Trouvé = materielDAO.findById(newMateriel.getId());
+        if (Trouvé != null) {
+            System.out.println("✓ Trouvé: " + Trouvé);
         }
 
-        // UPDATE
         System.out.println("\n3. UPDATE Test:");
-        found.setQuantiteDisponible(18);
-        found.setEtat("Très bon");
-        materielDAO.update(found);
+        Trouvé.setQuantiteDisponible(18);
+        Trouvé.setEtat("Très bon");
+        materielDAO.update(Trouvé);
 
-        // READ ALL
         System.out.println("\n4. READ ALL Test:");
         materielDAO.findAll();
 
-        // SEARCH BY TYPE
         System.out.println("\n5. SEARCH BY TYPE Test:");
         var materielsByType = materielDAO.findByType("Informatique");
-        System.out.println("✓ Found " + materielsByType.size() + " materiel(s) of type 'Informatique'");
+        System.out.println("✓ Trouvé " + materielsByType.size() + " materiel(s) of type 'Informatique'");
 
-        // DELETE
         System.out.println("\n6. DELETE Test:");
         materielDAO.delete(newMateriel.getId());
     }
@@ -208,7 +175,6 @@ public class TestCRUD {
         System.out.println("\n--- Testing Session CRUD Operations ---");
         SessionDAO sessionDAO = new SessionDAO();
 
-        // CREATE
         System.out.println("\n1. CREATE Test:");
         Session newSession = new Session(
                 "Formation Spring Boot", 1, 1,
@@ -218,30 +184,27 @@ public class TestCRUD {
                 "Formation complète sur Spring Boot et microservices");
         sessionDAO.create(newSession);
 
-        // READ
         System.out.println("\n2. READ Test:");
-        Session found = sessionDAO.findById(newSession.getId());
-        if (found != null) {
-            System.out.println("✓ Found: " + found);
+        Session Trouvé = sessionDAO.findById(newSession.getId());
+        if (Trouvé != null) {
+            System.out.println("✓ Trouvé: " + Trouvé);
         }
 
-        // UPDATE
         System.out.println("\n3. UPDATE Test:");
-        found.setNombreEtudiants(18);
-        found.setStatut("Confirmée");
-        sessionDAO.update(found);
+        Trouvé.setNombreEtudiants(18);
+        Trouvé.setStatut("Confirmée");
+        sessionDAO.update(Trouvé);
 
-        // READ ALL
         System.out.println("\n4. READ ALL Test:");
         sessionDAO.findAll();
 
-        // SEARCH BY STATUT
         System.out.println("\n5. SEARCH BY STATUT Test:");
         var sessionsByStatut = sessionDAO.findByStatut("Planifiée");
-        System.out.println("✓ Found " + sessionsByStatut.size() + " session(s) with 'Planifiée' statut");
+        System.out.println("✓ Trouvé " + sessionsByStatut.size() + " session(s) with 'Planifiée' statut");
 
-        // DELETE
         System.out.println("\n6. DELETE Test:");
         sessionDAO.delete(newSession.getId());
     }
 }
+// Fin de la classe TestCRUD
+

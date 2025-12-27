@@ -1,3 +1,4 @@
+// Classe MaterielDAO : Gère les données du système
 package dao;
 
 import models.Materiel;
@@ -24,7 +25,7 @@ public class MaterielDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         materiel.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Materiel created successfully: " + materiel.getNom());
+                        System.out.println("✓ Materiel créé avec succès: " + materiel.getNom());
                     }
                 }
                 return true;
@@ -60,7 +61,7 @@ public class MaterielDAO {
             while (rs.next()) {
                 list.add(mapResultSetToMateriel(rs));
             }
-            System.out.println("✓ Found " + list.size() + " materiel(s)");
+            System.out.println("✓ Trouvé " + list.size() + " materiel(s)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -80,7 +81,7 @@ public class MaterielDAO {
             pstmt.setInt(7, materiel.getId());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Materiel updated successfully: " + materiel.getNom());
+                System.out.println("✓ Materiel mis à jour avec succès: " + materiel.getNom());
                 return true;
             }
         } catch (SQLException e) {
@@ -96,7 +97,7 @@ public class MaterielDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Materiel deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Materiel supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -134,3 +135,5 @@ public class MaterielDAO {
         return m;
     }
 }
+// Fin de la classe MaterielDAO
+

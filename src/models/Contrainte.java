@@ -1,3 +1,4 @@
+// Classe Contrainte : Gère les données du système
 package models;
 
 public class Contrainte {
@@ -21,7 +22,6 @@ public class Contrainte {
         this.active = active;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -84,3 +84,5 @@ public class Contrainte {
                 + entiteType + "', entiteId=" + entiteId + ", priorite=" + priorite + ", active=" + active + "}";
     }
 }
+// Fin de la classe Contrainte
+

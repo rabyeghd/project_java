@@ -1,3 +1,4 @@
+// Classe Session : Gère les données du système
 package models;
 
 import java.math.BigDecimal;
@@ -31,7 +32,6 @@ public class Session {
         this.description = description;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -119,3 +119,5 @@ public class Session {
                 + ", nombreEtudiants=" + nombreEtudiants + ", statut='" + statut + "'}";
     }
 }
+// Fin de la classe Session
+

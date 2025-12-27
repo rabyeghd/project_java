@@ -1,3 +1,4 @@
+// Classe Disponibilite : Gère les données du système
 package models;
 
 import java.sql.Date;
@@ -27,7 +28,6 @@ public class Disponibilite {
         this.type = type;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -99,3 +99,5 @@ public class Disponibilite {
                 + dateFin + ", type='" + type + "'}";
     }
 }
+// Fin de la classe Disponibilite
+

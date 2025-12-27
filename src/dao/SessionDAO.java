@@ -1,3 +1,4 @@
+// Classe SessionDAO : Gère les données du système
 package dao;
 
 import models.Session;
@@ -28,7 +29,7 @@ public class SessionDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         session.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Session created successfully: " + session.getNomCours());
+                        System.out.println("✓ Session créé avec succès: " + session.getNomCours());
                     }
                 }
                 return true;
@@ -64,7 +65,7 @@ public class SessionDAO {
             while (rs.next()) {
                 list.add(mapResultSetToSession(rs));
             }
-            System.out.println("✓ Found " + list.size() + " session(s)");
+            System.out.println("✓ Trouvé " + list.size() + " session(s)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,7 +88,7 @@ public class SessionDAO {
             pstmt.setInt(10, session.getId());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Session updated successfully: " + session.getNomCours());
+                System.out.println("✓ Session mis à jour avec succès: " + session.getNomCours());
                 return true;
             }
         } catch (SQLException e) {
@@ -103,7 +104,7 @@ public class SessionDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Session deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Session supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -144,3 +145,5 @@ public class SessionDAO {
         return s;
     }
 }
+// Fin de la classe SessionDAO
+

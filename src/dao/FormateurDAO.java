@@ -1,3 +1,4 @@
+// Classe FormateurDAO : Gère les données du système
 package dao;
 
 import models.Formateur;
@@ -24,7 +25,7 @@ public class FormateurDAO {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         formateur.setId(generatedKeys.getInt(1));
-                        System.out.println("✓ Formateur created successfully: " + formateur.getPrenom() + " "
+                        System.out.println("✓ Formateur créé avec succès: " + formateur.getPrenom() + " "
                                 + formateur.getNom());
                     }
                 }
@@ -61,7 +62,7 @@ public class FormateurDAO {
             while (rs.next()) {
                 list.add(mapResultSetToFormateur(rs));
             }
-            System.out.println("✓ Found " + list.size() + " formateur(s)");
+            System.out.println("✓ Trouvé " + list.size() + " formateur(s)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,7 +83,7 @@ public class FormateurDAO {
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
                 System.out.println(
-                        "✓ Formateur updated successfully: " + formateur.getPrenom() + " " + formateur.getNom());
+                        "✓ Formateur mis à jour avec succès: " + formateur.getPrenom() + " " + formateur.getNom());
                 return true;
             }
         } catch (SQLException e) {
@@ -98,7 +99,7 @@ public class FormateurDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Formateur deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Formateur supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -136,3 +137,5 @@ public class FormateurDAO {
         return f;
     }
 }
+// Fin de la classe FormateurDAO
+

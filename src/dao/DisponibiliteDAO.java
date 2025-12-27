@@ -1,3 +1,4 @@
+// Classe DisponibiliteDAO : Gère les données du système
 package dao;
 
 import models.Disponibilite;
@@ -26,7 +27,7 @@ public class DisponibiliteDAO {
                     if (generatedKeys.next()) {
                         disp.setId(generatedKeys.getInt(1));
                         System.out.println(
-                                "✓ Disponibilite created successfully for formateur ID: " + disp.getFormateurId());
+                                "✓ Disponibilite créé avec succès for formateur ID: " + disp.getFormateurId());
                     }
                 }
                 return true;
@@ -82,7 +83,7 @@ public class DisponibiliteDAO {
             pstmt.setInt(7, disp.getId());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Disponibilite updated successfully (ID: " + disp.getId() + ")");
+                System.out.println("✓ Disponibilite mis à jour avec succès (ID: " + disp.getId() + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -98,7 +99,7 @@ public class DisponibiliteDAO {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("✓ Disponibilite deleted successfully (ID: " + id + ")");
+                System.out.println("✓ Disponibilite supprimé avec succès (ID: " + id + ")");
                 return true;
             }
         } catch (SQLException e) {
@@ -120,3 +121,5 @@ public class DisponibiliteDAO {
         return d;
     }
 }
+// Fin de la classe DisponibiliteDAO
+
